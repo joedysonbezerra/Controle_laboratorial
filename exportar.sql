@@ -1,0 +1,632 @@
+--------------------------------------------------------
+--  Arquivo criado - segunda-feira-novembro-26-2018   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence SEQ_DEPARTAMENTO
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "LAB"."SEQ_DEPARTAMENTO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 33 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_ENDERECO
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "LAB"."SEQ_ENDERECO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_EXAME
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "LAB"."SEQ_EXAME"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 44 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_FUNC_ADM
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "LAB"."SEQ_FUNC_ADM"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 100 START WITH 420332440 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_FUNCIONARIO
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "LAB"."SEQ_FUNCIONARIO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 100 START WITH 420334440 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_FUNC_TEC
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "LAB"."SEQ_FUNC_TEC"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 100 START WITH 420334440 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_MEDICO
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "LAB"."SEQ_MEDICO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 20 START WITH 600 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_PACIENTE
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "LAB"."SEQ_PACIENTE"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 100 START WITH 220332740 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_PLANO
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "LAB"."SEQ_PLANO"  MINVALUE 1 MAXVALUE 20 INCREMENT BY 1 START WITH 21 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_VENDA
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "LAB"."SEQ_VENDA"  MINVALUE 1 MAXVALUE 20 INCREMENT BY 1 START WITH 21 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Table ADMINISTRATIVO
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."ADMINISTRATIVO" 
+   (	"CPF_FUNCIONARIO" VARCHAR2(15 BYTE), 
+	"QTD_VENDIDA" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table DEPARTAMENTO
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."DEPARTAMENTO" 
+   (	"COD" NUMBER(*,0), 
+	"NOME" VARCHAR2(40 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table ENDERECO
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."ENDERECO" 
+   (	"COD" NUMBER(*,0), 
+	"CIDADE" VARCHAR2(20 BYTE), 
+	"ESTADO" VARCHAR2(20 BYTE), 
+	"BAIRRO" VARCHAR2(30 BYTE), 
+	"RUA" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table ESPECIALIZACAO
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."ESPECIALIZACAO" 
+   (	"ESPECIALIZACAO" VARCHAR2(50 BYTE), 
+	"MEDICO_CRM" VARCHAR2(16 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table EXAME
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."EXAME" 
+   (	"COD" NUMBER(*,0), 
+	"NOME" VARCHAR2(55 BYTE), 
+	"PRECO" NUMBER, 
+	"CPF_PACIENTE" VARCHAR2(15 BYTE), 
+	"CRM_MEDICO" VARCHAR2(16 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table FUNCIONARIO
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."FUNCIONARIO" 
+   (	"CPF" VARCHAR2(15 BYTE), 
+	"NOME" VARCHAR2(50 BYTE), 
+	"IDADE" NUMBER(*,0), 
+	"SEXO" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table MEDICO
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."MEDICO" 
+   (	"CRM" VARCHAR2(16 BYTE), 
+	"NOME" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table PACIENTE
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."PACIENTE" 
+   (	"CPF" VARCHAR2(15 BYTE), 
+	"NOME" VARCHAR2(50 BYTE), 
+	"IDADE" NUMBER(*,0), 
+	"SEXO" VARCHAR2(50 BYTE), 
+	"PLANO_DE_SAUDE_COD" NUMBER(*,0), 
+	"ENDERECO_COD" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table PLANO_DE_SAUDE
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."PLANO_DE_SAUDE" 
+   (	"COD" NUMBER(*,0), 
+	"NOME" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table TECNICO
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."TECNICO" 
+   (	"CPF_FUNCIONARIO" VARCHAR2(15 BYTE), 
+	"FORMACAO" VARCHAR2(15 BYTE), 
+	"COD_DEPARTAMENTO" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table VENDA
+--------------------------------------------------------
+
+  CREATE TABLE "LAB"."VENDA" 
+   (	"COD" NUMBER(*,0), 
+	"DATA" DATE, 
+	"COD_EXAME" NUMBER(*,0), 
+	"CPF_ADMINISTRATIVO" VARCHAR2(15 BYTE), 
+	"CPF_TECNICO" VARCHAR2(15 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into LAB.ADMINISTRATIVO
+SET DEFINE OFF;
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420330440','53');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420330540','64');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420330640','67');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420330740','82');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420330840','73');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420330940','42');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420331040','50');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420331140','48');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420331240','48');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420331340','32');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420331440','98');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420331540','78');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420331640','78');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420331740','76');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420331840','67');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420331940','64');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420332040','53');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420332140','66');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420332240','55');
+Insert into LAB.ADMINISTRATIVO (CPF_FUNCIONARIO,QTD_VENDIDA) values ('420332340','69');
+REM INSERTING into LAB.DEPARTAMENTO
+SET DEFINE OFF;
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('22','T.I');
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('23','BIOQUIMICA');
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('24','HEMATOLOGIA');
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('25','IMUNOLOGIA');
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('26','MICROBIOLOGIA');
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('27','COLETA E ORGANIZAÇÃO DE MATERIAL');
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('28','lIMPEZA');
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('29','RECURSOS HUMANOS');
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('30','TRANSPORTE');
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('31','DESCARTES DE RESIDUOS');
+Insert into LAB.DEPARTAMENTO (COD,NOME) values ('32','BIOSEGURANÇA');
+REM INSERTING into LAB.ENDERECO
+SET DEFINE OFF;
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('1','Caruaru','Pernambuco','Universitário','Av. Portugal');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('2','Recife','Pernambuco','Espinheiro','Av. Gov. Agamenon Magalhães');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('3','São Paulo','São Paulo','Vila Prudente','Rua Orfanato');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('4','Rio de Janeiro','Rio de Janeiro','Centro','Av. Passos');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('5','Niterói','Rio de Janeiro','Ingá','Rua Sebastião');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('6','Gravatá','Pernambuco','Prado','R. Joaquim Souto');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('7','Vitória St. Antão','Pernambuco','Matriz','R. Ismael de Andrade');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('8','Recife','Penambuco','Madalena','R. Altinho');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('9','Recife','Pernambuco','Boa Viagem','Av. Conselheiro Aguiar');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('10','Caruaru','Pernambuco','Maurício de Nassau','R. da Penha');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('11','Caruaru','Pernambuco','Universitário','Av. Madrid');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('12','Caruaru','Pernambuco','Salgado','R. Kansas');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('13','Jab. dos Guararapes','Pernambuco','Piedade','Av. Ayrton Senna da Silva');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('14','Recife','Pernambuco','Pina','R. Souto Filho');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('15','Olinda','Pernambuco','Bairro Novo','R. Maria Ramos');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('16','Olinda','Pernambuco','Jardim Atlântico','R. Olávo Bilac');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('17','Olinda','Pernambuco','Bairro Novo','R. Maria Ramos');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('18','Olinda','Pernambuco','Fragoso','R. Cordeiro');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('19','João Pessoa','Paraíba','Miramar','R. José Liberato');
+Insert into LAB.ENDERECO (COD,CIDADE,ESTADO,BAIRRO,RUA) values ('20','João Pessoa','Paraíba','São José','R. Edmundo Filho');
+REM INSERTING into LAB.ESPECIALIZACAO
+SET DEFINE OFF;
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Alergologia','540');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Anatomia patológica','200');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Andrologia','220');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Anestesiologia','320');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Angiologia?','260');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Cancerologia','280');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Cardiologia','200');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Clínica médica?','300');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Dermatologia','240');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Endocrinologia','460');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Epidemiologia','360');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Gastroenterologia','440');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Geriatria','220');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Gerontologia','480');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Ginecologia','260');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Hematologia','520');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Hepatologia','540');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Imunologia','480');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Infectologia?','560');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Medicina esportiva','380');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Medicina legal?','560');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Medicina tropical?','580');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Nefrologia?','320');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Neurologia','440');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Obstetrícia','280');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Oftalmologia?','340');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Oncologia','500');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Ortopedia','300');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Pediatria','360');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Pneumologia?','400');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Podologia','440');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Psiquiatria','380');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Radiologia','420');
+Insert into LAB.ESPECIALIZACAO (ESPECIALIZACAO,MEDICO_CRM) values ('Reumatologia','480');
+REM INSERTING into LAB.EXAME
+SET DEFINE OFF;
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('24','Glicose','6','220330740','200');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('25','Hemograma','16,4','220330740','200');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('26','Colesterol','6,45','220330740','200');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('27','Psa Total','16,45','220330840','260');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('28','Exame de Gravidez','25','220331140','300');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('29','Hemoglobina Glicada Fração A1c','18,45','220330940','280');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('30','TGO – Transaminase Glutâmica Oxalacética','8,45','220331340','360');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('31','TGP – Transaminase Glutâmico Pirúvica','6,45','220331340','360');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('32','Triglicérides, Soro','5,45','220331640','320');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('33','TSH – Hormônio Tireoestimulante','200,45','220331740','340');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('34','Vitamina D-25 Hidroxi','70,45','220331740','340');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('35','Desoxicortisol','160,45','220332140','300');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('36','Hidroxipregnenolona, Soro','640,45','220332240','260');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('37','Hidroxicorticosteróides Fracionados, Urina','800,45','220332340','260');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('38','Ácido Fólico / Folato – Vitamina B9','16,45','220332440','280');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('39','Ácido Fórmico, Urina','36,45','220332540','260');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('40','Ácido Hipúrico, Final de Jornada','16,45','220330840','260');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('41','Ácido Oxálico Oxalato, Soro','160,45','220332640','400');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('42','Ácido Úrico, Urina 24h','6,45','220332640','400');
+Insert into LAB.EXAME (COD,NOME,PRECO,CPF_PACIENTE,CRM_MEDICO) values ('43','Adenovírus Antígeno, Fezes','46,45','220332640','400');
+REM INSERTING into LAB.FUNCIONARIO
+SET DEFINE OFF;
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420330440','Eduarda Costa','45','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420330540','Mariana Pereira','31','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420330640','Vitória Souza Ribeiro','35','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420330740','Luiz Ribeiro','43','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420330840','Danilo Rocha','33','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420330940','Lavinia Rodrigues','40','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420331040','Caio Sousa Fernandes','41','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420331140','Luís Almeida','41','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420331240','Giovana Souza','44','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420331340','André Fernandes','28','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420331440','Marina Barbosa','46','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420331540','Luís Melo Rodrigues','26','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420331640','Luis Cavalcanti','35','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420331740','Sophia Cavalcanti','33','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420331840','Murilo Rodrigues','43','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420331940','Thiago Silva','42','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420332040','Maria Cardoso','31','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420332140','Kauê Oliveira Santos','42','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420332240','Manuela Goncalves','44','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420332340','Ryan Rocha','39','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420332440','Bruna Alves','42','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420332540','Vitoria Souza Alves','48','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420332640','Leonor Barros','32','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420332740','Marina Almeida','39','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420332840','Sofia Castro','30','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420332940','Júlio Melo','30','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420333040','Nicole Melo','43','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420333140','Fábio Melo Barros','39','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420333240','Vitoria Alves','30','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420333340','Júlio Castro','40','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420333440','Melissa Araujo Lima','41','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420333540','Otávio Oliveira','25','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420333640','Daniel Azevedo','43','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420333740','Luana Carvalho Azevedo','28','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420333840','Luis Barbosa','37','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420333940','Breno Ribeiro','45','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420334040','Brenda Santos','30','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420334140','Vinícius Cardoso Barbosa','26','Masculino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420334240','Julieta Santos','46','Feminino');
+Insert into LAB.FUNCIONARIO (CPF,NOME,IDADE,SEXO) values ('420334340','Yasmin Lima','44','Feminino');
+REM INSERTING into LAB.MEDICO
+SET DEFINE OFF;
+Insert into LAB.MEDICO (CRM,NOME) values ('200','Tiago Dias Barbosa');
+Insert into LAB.MEDICO (CRM,NOME) values ('220','Julian Ribeiro Cavalcanti');
+Insert into LAB.MEDICO (CRM,NOME) values ('240','Livia Pinto Barros');
+Insert into LAB.MEDICO (CRM,NOME) values ('260','Gabriela Ribeiro Pinto');
+Insert into LAB.MEDICO (CRM,NOME) values ('280','Luis Pinto Gomes');
+Insert into LAB.MEDICO (CRM,NOME) values ('300','Estevan Martins Pereira');
+Insert into LAB.MEDICO (CRM,NOME) values ('320','Isabela Fernandes Correia');
+Insert into LAB.MEDICO (CRM,NOME) values ('340','Yasmin Castro Lima');
+Insert into LAB.MEDICO (CRM,NOME) values ('360','Fernanda Araujo Cavalcanti');
+Insert into LAB.MEDICO (CRM,NOME) values ('380','José Sousa Fernandes');
+Insert into LAB.MEDICO (CRM,NOME) values ('400','Vitor Gomes Azevedo');
+Insert into LAB.MEDICO (CRM,NOME) values ('420','Leonardo Gomes Santos');
+Insert into LAB.MEDICO (CRM,NOME) values ('440','Júlia Correia Gomes');
+Insert into LAB.MEDICO (CRM,NOME) values ('460','Anna Rocha Souza');
+Insert into LAB.MEDICO (CRM,NOME) values ('480','Emily Pereira Barbosa');
+Insert into LAB.MEDICO (CRM,NOME) values ('500','Giovanna Barbosa Barros');
+Insert into LAB.MEDICO (CRM,NOME) values ('520','Erick Araujo Santos');
+Insert into LAB.MEDICO (CRM,NOME) values ('540','André Barros Martins');
+Insert into LAB.MEDICO (CRM,NOME) values ('560','Ryan Araujo Carvalho');
+Insert into LAB.MEDICO (CRM,NOME) values ('580','Giovanna Cunha Pereira');
+REM INSERTING into LAB.PACIENTE
+SET DEFINE OFF;
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220330740','José Barros Rocha','70','Masculino',null,'1');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220330840','Caio Barros Gomes','32','Masculino','5','10');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220330940','Breno Lima Goncalves','25','Masculino','8','13');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220331040','Vinicius Ferreira Alves','35','Masculino','2','20');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220331140','Bianca Cavalcanti Azevedo','82','Feminino','14','3');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220331240','Carolina Almeida Oliveira','35','Feminino','19','4');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220331340','Mariana Correia Souza','19','Feminino','12','7');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220331440','Luana Gomes Sousa','30','Feminino','17','5');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220331540','Daniel Lima Costa','40','Masculino','3','6');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220331640','Matilde Alves Correia','60','Feminino',null,'9');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220331740','Nicolash Santos Lima','45','Masculino',null,'11');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220331840','Gabrielle Azevedo Rodrigues','25','Feminino','11','12');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220331940','Vitor Ribeiro Cunha','19','Masculino','2','17');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220332040','Nicole Pinto Oliveira','29','Feminino','6','18');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220332140','Paulo Goncalves Ferreira','18','Masculino','7','19');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220332240','Isabela Cavalcanti Rocha','23','Feminino','18','8');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220332340','Kaua Azevedo Gomes','60','Masculino','15','2');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220332440','Emilly Costa Melo','27','Feminino','13','15');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220332540','Marcos Lima Cardoso','80','Masculino','9','16');
+Insert into LAB.PACIENTE (CPF,NOME,IDADE,SEXO,PLANO_DE_SAUDE_COD,ENDERECO_COD) values ('220332640','Evelyn Costa Dias','64','Feminino','16','14');
+REM INSERTING into LAB.PLANO_DE_SAUDE
+SET DEFINE OFF;
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('1','GOLDEN_CROSS');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('2','AMIL');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('3','UNIMED');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('4','NOTREDAME');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('5','GAMA');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('6','SMILES');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('7','BRADESCO');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('8','CAIXA_SAUDE');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('9','NEXT_SAUDE');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('10','PLENA_SAUDE');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('11','BLUE_MED');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('12','BIOVIDA_SAUDE');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('13','ALLIANZ_SAUDE');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('14','PORTO_SEGURO_SAUDE');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('15','PREVENT_SENIOR');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('16','INTERCLINICAS');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('17','SANTA_HELENA_SAUDE');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('18','SAO_MIGUEL_SAUDE');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('19','MED_TOUR_SAUDE');
+Insert into LAB.PLANO_DE_SAUDE (COD,NOME) values ('20','AMEPLAN_SAUDE');
+REM INSERTING into LAB.TECNICO
+SET DEFINE OFF;
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420332540','Enfermeiro','27');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420332640','Enfermeiro','32');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420332740','Enfermeiro','32');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420332840','Enfermeiro','27');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420332940','Biomédico','24');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420333040','Biomédico','25');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420333140','Biomédico','25');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420333240','Contador','29');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420333340','Contador','29');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420333440','T.I','22');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420333540','T.I','22');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420333640',null,'28');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420333740',null,'28');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420333840',null,'31');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420333940',null,'30');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420334040',null,'31');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420334140',null,'30');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420334240','Bioquímico','26');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420334340','Bioquímico','26');
+Insert into LAB.TECNICO (CPF_FUNCIONARIO,FORMACAO,COD_DEPARTAMENTO) values ('420332440','Enfermeiro','27');
+REM INSERTING into LAB.VENDA
+SET DEFINE OFF;
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('1',to_date('05/01/18','DD/MM/RR'),'24','420330440','420332540');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('2',to_date('10/01/18','DD/MM/RR'),'25','420330540','420332840');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('3',to_date('18/01/18','DD/MM/RR'),'26','420330640','420332840');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('4',to_date('23/01/18','DD/MM/RR'),'27','420330740','420332540');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('5',to_date('12/02/18','DD/MM/RR'),'28','420330840','420332840');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('6',to_date('26/02/18','DD/MM/RR'),'29','420330940','420332440');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('7',to_date('05/03/18','DD/MM/RR'),'30','420331040','420332540');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('8',to_date('15/03/18','DD/MM/RR'),'31','420331140','420332440');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('9',to_date('20/04/18','DD/MM/RR'),'32','420331240','420332540');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('10',to_date('02/05/18','DD/MM/RR'),'33','420331340','420332840');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('11',to_date('06/05/18','DD/MM/RR'),'34','420331440','420332440');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('12',to_date('09/06/18','DD/MM/RR'),'35','420331540','420332440');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('13',to_date('21/06/18','DD/MM/RR'),'36','420331640','420332540');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('14',to_date('20/07/18','DD/MM/RR'),'37','420331740','420332840');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('15',to_date('25/07/18','DD/MM/RR'),'38','420331840','420332440');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('16',to_date('27/07/18','DD/MM/RR'),'39','420331940','420332540');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('17',to_date('11/08/18','DD/MM/RR'),'40','420332040','420332840');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('18',to_date('16/08/18','DD/MM/RR'),'41','420332140','420332540');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('19',to_date('04/09/18','DD/MM/RR'),'42','420332240','420332440');
+Insert into LAB.VENDA (COD,DATA,COD_EXAME,CPF_ADMINISTRATIVO,CPF_TECNICO) values ('20',to_date('09/09/18','DD/MM/RR'),'43','420332340','420332540');
+--------------------------------------------------------
+--  Constraints for Table ENDERECO
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."ENDERECO" ADD PRIMARY KEY ("COD")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."ENDERECO" MODIFY ("RUA" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."ENDERECO" MODIFY ("BAIRRO" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."ENDERECO" MODIFY ("ESTADO" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."ENDERECO" MODIFY ("CIDADE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table VENDA
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."VENDA" ADD PRIMARY KEY ("COD_EXAME", "CPF_TECNICO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."VENDA" MODIFY ("CPF_TECNICO" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."VENDA" MODIFY ("CPF_ADMINISTRATIVO" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."VENDA" MODIFY ("COD_EXAME" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."VENDA" MODIFY ("DATA" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table PLANO_DE_SAUDE
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."PLANO_DE_SAUDE" ADD PRIMARY KEY ("COD")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."PLANO_DE_SAUDE" MODIFY ("NOME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table ESPECIALIZACAO
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."ESPECIALIZACAO" ADD PRIMARY KEY ("ESPECIALIZACAO", "MEDICO_CRM")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."ESPECIALIZACAO" MODIFY ("MEDICO_CRM" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table PACIENTE
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."PACIENTE" ADD PRIMARY KEY ("CPF")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."PACIENTE" MODIFY ("ENDERECO_COD" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."PACIENTE" MODIFY ("IDADE" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."PACIENTE" MODIFY ("NOME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table DEPARTAMENTO
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."DEPARTAMENTO" ADD PRIMARY KEY ("COD")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."DEPARTAMENTO" MODIFY ("NOME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table FUNCIONARIO
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."FUNCIONARIO" ADD PRIMARY KEY ("CPF")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."FUNCIONARIO" MODIFY ("IDADE" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."FUNCIONARIO" MODIFY ("NOME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table MEDICO
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."MEDICO" ADD PRIMARY KEY ("CRM")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."MEDICO" MODIFY ("NOME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table EXAME
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."EXAME" ADD PRIMARY KEY ("COD")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."EXAME" MODIFY ("CPF_PACIENTE" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."EXAME" MODIFY ("PRECO" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."EXAME" MODIFY ("NOME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table ADMINISTRATIVO
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."ADMINISTRATIVO" ADD PRIMARY KEY ("CPF_FUNCIONARIO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."ADMINISTRATIVO" MODIFY ("CPF_FUNCIONARIO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table TECNICO
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."TECNICO" ADD PRIMARY KEY ("CPF_FUNCIONARIO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "LAB"."TECNICO" MODIFY ("COD_DEPARTAMENTO" NOT NULL ENABLE);
+  ALTER TABLE "LAB"."TECNICO" MODIFY ("CPF_FUNCIONARIO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table ADMINISTRATIVO
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."ADMINISTRATIVO" ADD FOREIGN KEY ("CPF_FUNCIONARIO")
+	  REFERENCES "LAB"."FUNCIONARIO" ("CPF") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table ESPECIALIZACAO
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."ESPECIALIZACAO" ADD FOREIGN KEY ("MEDICO_CRM")
+	  REFERENCES "LAB"."MEDICO" ("CRM") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table EXAME
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."EXAME" ADD FOREIGN KEY ("CPF_PACIENTE")
+	  REFERENCES "LAB"."PACIENTE" ("CPF") ENABLE;
+  ALTER TABLE "LAB"."EXAME" ADD FOREIGN KEY ("CRM_MEDICO")
+	  REFERENCES "LAB"."MEDICO" ("CRM") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table PACIENTE
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."PACIENTE" ADD FOREIGN KEY ("PLANO_DE_SAUDE_COD")
+	  REFERENCES "LAB"."PLANO_DE_SAUDE" ("COD") ENABLE;
+  ALTER TABLE "LAB"."PACIENTE" ADD FOREIGN KEY ("ENDERECO_COD")
+	  REFERENCES "LAB"."ENDERECO" ("COD") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table TECNICO
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."TECNICO" ADD FOREIGN KEY ("CPF_FUNCIONARIO")
+	  REFERENCES "LAB"."FUNCIONARIO" ("CPF") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table VENDA
+--------------------------------------------------------
+
+  ALTER TABLE "LAB"."VENDA" ADD FOREIGN KEY ("CPF_TECNICO")
+	  REFERENCES "LAB"."TECNICO" ("CPF_FUNCIONARIO") ENABLE;
+  ALTER TABLE "LAB"."VENDA" ADD FOREIGN KEY ("CPF_ADMINISTRATIVO")
+	  REFERENCES "LAB"."ADMINISTRATIVO" ("CPF_FUNCIONARIO") ENABLE;
